@@ -14,6 +14,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { sidebarLinks } from '@/constants'
 import { usePathname } from 'next/navigation'
+import Footer from './Footer'
  
 
 const MobileNavbar = ({ user } : MobileNavProps) => {
@@ -21,6 +22,7 @@ const MobileNavbar = ({ user } : MobileNavProps) => {
   return (
    <section className='w-full max-w-[264px]'>
       <Sheet>
+         
          <SheetTrigger>
             <Image
                src='/icons/hamburger.svg'
@@ -30,10 +32,14 @@ const MobileNavbar = ({ user } : MobileNavProps) => {
             />
          </SheetTrigger>
          <SheetContent 
+            aria-describedby={undefined}
             className='bg-white border-none'
 
          >
-         <Link href='/' className=' flex  cursor-pointer items-center gap-1 px-4'>
+            
+            <SheetTitle></SheetTitle>
+            <SheetDescription></SheetDescription>
+            <Link href='/' className=' flex  cursor-pointer items-center gap-1 px-4'>
                <Image
                src='/icons/logo.svg' 
                width={34} 
@@ -88,7 +94,7 @@ const MobileNavbar = ({ user } : MobileNavProps) => {
                   </nav>
                </SheetClose>
 
-               FOOTER
+              <Footer user={user} type='mobile' />
             </div>
 
             
